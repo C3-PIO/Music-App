@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Main from "./components/Main";
+import { useState, useEffect } from "react";
 
 function App() {
+  // Holds token
+  const [accessToken, setAccessToken] = useState("");
+
+  // Fetchs token and sets it so that API requests can be made
+  useEffect(() => {}, []);
+
+  // Use global state for all API fetchs or use UseContext????????
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar token={accessToken} />
+      <Main token={accessToken} />
     </div>
   );
 }

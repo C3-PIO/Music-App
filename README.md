@@ -68,3 +68,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Spotify App
+
+What can I access using client credentials only (avoid needing user access)?
+    - Review API documentation for confirmation on which elements need authorization scopes 
+
+Things to remember:
+    - Error handling
+    - Loading vs Loaded 
+
+Ideas:
+    - Search playlists by category or genre
+        - Show tracks if playlist selected 
+    - Search artists 
+        - Shows albums & top-tracks: each should be accessible
+    - Search albums
+        - Show tracks of selected album
+    - Search audiobooks 
+        - Display chapters if selected
+    - Search podcasts (aka shows in the Spotify API)  
+
+Structure:
+App contains search engine and routes to components
+    - Results contain Link in name of album, playlist, track, etc that connects to corresponding component 
+    - Services folder contains functions for fetch calls needed (albums, artists, tracks, etc)
+    - Tracks component displays tracks for selected albums or playlists: Carousel 
+    - Chapters component displays Chapters for selected audiobooks: Carousel 
+
+Credit:
+    - Cooper Codes for walkthrough on fetching a Spotify Api Token, as well as, making API fetch calls with the access token. 
+    - Vetrivel Ravi for exposing me to React-Icons 
+    - Brian Design for the nav bar inspiration 
+

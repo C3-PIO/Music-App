@@ -8,13 +8,18 @@ import Podcasts from "../pages/Podcasts";
 import Audiobooks from "../pages/Audiobooks";
 
 //Main component that houses all other pages
-function Main() {
+function Main(token) {
+
+    async function search(){
+        console.log("hello")
+      }
+
   return (
     <div className="main">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/artists" element={<Artists />} />
-        <Route path="/albums" element={<Albums />} />
+        <Route path="/albums" element={<Albums search={search}/>} />
         <Route path="/playlists" element={<Playlists />} />
         <Route path="/podcasts" element={<Podcasts />} />
         <Route path="/audiobooks" element={<Audiobooks />} />

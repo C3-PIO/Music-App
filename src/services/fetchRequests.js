@@ -1,7 +1,22 @@
-//Use useContext to store all the API fetch calls data?????
+import Main from "../pages/Albums"
 
-function fetchRequests() {
-  return <div>fetchRequests</div>;
+const fetchRequests = 
+{
+    getAlbums(){
+        console.log(`fetched albums`)
+    },
+    getArtists(){
+        console.log("fetched artists")
+    },
+    getAudiobooks(){
+        console.log("fetched audiobooks")
+    },
+    getPlaylists(){
+        console.log("fetched playlists")
+    },
+    getPodcasts(){
+        console.log("fetched podcasts")
+    }
 }
 
-export default fetchRequests;
+export default fetchRequests

@@ -3,9 +3,14 @@
   padding: 0;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -15,7 +20,13 @@
   color: white;
   font-size: large;
   font-weight: bold;
-  padding: 1%;
+  align-content: start;
+  overflow: hidden;
+}
+
+.nav-list {
+  list-style: none;
+  text-decoration: none;
 }
 
 .main {
@@ -23,5 +34,7 @@
   background-color: lightskyblue;
   color: white; 
   text-align: center;
+  min-width: fit-content;
+  overflow: hidden;
 }
 

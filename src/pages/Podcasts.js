@@ -19,7 +19,7 @@ function Podcasts() {
   // Render data so the results display on Podcasts Page
   return (
     <Container>
-      <InputGroup className="mb-3" size="md">
+      <InputGroup className="mt-3 mb-3" size="md">
         <FormControl
           placeholder="Search podcasts by name"
           type="input"

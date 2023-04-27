@@ -20,7 +20,7 @@ function Audiobooks() {
   // Render data so the results display on Audiobooks Page
   return (
     <Container>
-      <InputGroup className="mb-3" size="md">
+      <InputGroup className="mt-3 mb-3" size="md">
         <FormControl
           placeholder="Search audiobooks by name or genre"
           type="input"

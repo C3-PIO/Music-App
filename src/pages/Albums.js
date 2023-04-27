@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import fetchRequests from "../services/fetchRequests";
-import { Container, InputGroup, FormControl, Button } from "react-bootstrap";
+import { Container, InputGroup, FormControl, Button } from "react-bootstrap"; // Pre-created & styled components stored in 'bootstrap/dist/css/bootstrap.min.css'
 
 // path: https://api.spotify.com/v1/albums
 
@@ -19,8 +19,9 @@ function Albums(search) {
   // Render data so the results display on Albums Page
   return (
     <Container>
-      <InputGroup className="mb-3" size="md">
-        <FormControl
+      {/* creates search bar */}
+      <InputGroup className="mt-3 mb-3" size="md">
+        <FormControl // Text type input
           placeholder="Search albums by name or genre"
           type="input"
           onKeyDown={(event) => {
@@ -31,8 +32,9 @@ function Albums(search) {
           onChange={(event) => setSearchInput(event.target.value)}
         />
         <Button
+          className="btn btn-default"
           onClick={() => {
-            console.log("clicked enter");
+            console.log("clicked button");
           }}
         >
           Search

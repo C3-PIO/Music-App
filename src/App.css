@@ -1,40 +1,42 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .App {
   display: flex;
   width: 100vw;
   height: 100vh;
+  background-color: white;
 }
 
 .sidebar {
   width: 15%;
-  background-color: black;
   color: white;
-  font-size: large;
   font-weight: bold;
-  align-content: start;
   overflow: hidden;
+  padding-top: 1%;
 }
 
-.nav-list {
+.nav-list a {
   list-style: none;
   text-decoration: none;
+  color: white;
+}
+
+.nav-list a svg {
+  font-size: 1.1em;
+}
+
+.nav-list a span {
+  margin-left: .25em;
 }
 
 .main {
   width: 85%;
-  background-color: lightskyblue;
+  background-color: rgb(60, 180, 255);
   color: white; 
   text-align: center;
   min-width: fit-content;
   overflow: hidden;
+}
+
+.carousel-inner .carousel-item img {
+  height: 50vh;
 }
 

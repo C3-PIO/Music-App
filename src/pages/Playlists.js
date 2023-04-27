@@ -19,7 +19,7 @@ function Playlists() {
   // Render data so the results display on Playlists Page
   return (
     <Container>
-      <InputGroup className="mb-3" size="md">
+      <InputGroup className="mt-3 mb-3" size="md">
         <FormControl
           placeholder="Search playlists by name, genre, or category"
           type="input"

@@ -31,6 +31,7 @@
   background-color: rgb(60, 180, 255);
   color: white; 
   text-align: center;
+  overflow: auto;
   min-width: 85%;
 }
 
@@ -38,6 +39,3 @@
   height: 75vh;
 }
 
-/* .carousel {
-  margin: 0 
-} */

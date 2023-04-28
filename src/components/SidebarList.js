@@ -32,7 +32,7 @@ const SidebarList = [
     icon: <BiPodcast />
   },
   {
-    name: "Audiobook",
+    name: "Audiobooks",
     path: "/audiobooks",
     icon: <VscBook />
   },

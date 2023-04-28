@@ -1,10 +1,18 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar";
-import Main from "./components/Main";
 import { useState, useEffect } from "react";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Playlists from "./pages/Playlists";
+import Artists from "./pages/Artists";
+import Albums from "./pages/Albums";
+import Home from "./pages/Home";
+import Podcasts from "./pages/Podcasts";
+import Audiobooks from "./pages/Audiobooks";
+import { Container } from "react-bootstrap";
 
 const CLIENT_ID = "60c47a0b477d4b39b816055486254ba8";
-const CLIENT_SECRET = "e64e08d0eece499d9db1ff7ddc68962c";
+const CLIENT_SECRET = '752bc4f87bcb47849e18236ae29fcf13'
 
 function App() {
   // Holds token
@@ -32,9 +40,18 @@ function App() {
   // console.log(accessToken);
 
   return (
-    <div className="App container-fluid">
+    <div className="App bg-dark">
       <Sidebar />
-      <Main token={accessToken} />
+      <Container className="main p-0">
+      <Routes>
+        <Route path="/" element={<Home token={accessToken}/>} />
+        <Route path="/artists" element={<Artists token={accessToken}/>} />
+        <Route path="/albums" element={<Albums token={accessToken}/>} />
+        <Route path="/playlists" element={<Playlists token={accessToken}/>} />
+        <Route path="/podcasts" element={<Podcasts token={accessToken}/>} />
+        <Route path="/audiobooks" element={<Audiobooks token={accessToken}/>} />
+      </Routes>
+    </Container>
     </div>
   );
 }

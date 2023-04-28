@@ -9,8 +9,7 @@
   width: 15%;
   color: white;
   font-weight: bold;
-  overflow: hidden;
-  padding-top: 1%;
+  min-width: 15%;
 }
 
 .nav-list a {
@@ -32,11 +31,13 @@
   background-color: rgb(60, 180, 255);
   color: white; 
   text-align: center;
-  min-width: fit-content;
-  overflow: hidden;
+  min-width: 85%;
 }
 
 .carousel-inner .carousel-item img {
-  height: 50vh;
+  height: 75vh;
 }
 
+/* .carousel {
+  margin: 0 
+} */

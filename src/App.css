@@ -1,8 +1,8 @@
 .App {
   display: flex;
-  width: 100vw;
   height: 100vh;
-  background-color: white;
+  width: 100vw;
+  overflow: auto;
 }
 
 .sidebar {
@@ -47,20 +47,34 @@ Nav {
   min-width: 85%;
 }
 
-.carousel-inner .carousel-item img {
+.home-header {
+  display: flex;
+  min-height: 25vh;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.carousel-inner .carousel-item img{
   height: 75vh;
 }
 
-.header {
-  height: 4%
+.sidebar-header {
+  height: 4%;
 }
 
-.header span {
+.sidebar-header a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar-header span {
  margin-left: .25em;
  font-size: 1.75vw
 }
 
-.header svg {
+.sidebar-header svg {
   font-size: 1.5vw
 }
 
@@ -68,13 +82,22 @@ Nav {
   .nav-list a span {
     visibility: hidden;
   }
-  .header span {
+  .sidebar-header span {
     visibility: hidden;
    }
-   .header svg {
+   .sidebar-header svg {
     font-size: 1.20em
   }
   .nav-list a svg {
     font-size: 1.20em
+  }
+  .carousel-inner .carousel-item img {
+    height: 50vh;
+  }
+  .home-header {
+    display: flex;
+    height: 50vh;
+    align-items: center;
+    min-width: fit-content;
   }
 }

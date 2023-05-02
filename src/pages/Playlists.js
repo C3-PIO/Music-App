@@ -11,13 +11,13 @@ import {
 
 // path: https://api.spotify.com/v1/playlists/{playlist_id}
 
-function Playlists({ token, randomPerson }) {
+function Playlists({ token, randomPlaylist }) {
   // Holds user input in search bar
   const [searchInput, setSearchInput] = useState("");
   // Holds playlists data
   const [playlists, setPlaylists] = useState([]);
 
-  const random = randomPerson[Math.floor(Math.random() * 20)];
+  const random = randomPlaylist[Math.floor(Math.random() * 9)];
 
   useEffect(() => {
     async function getRandom() {

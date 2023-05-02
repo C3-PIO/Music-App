@@ -36,6 +36,9 @@ const randomArr = [
   "Imagine Dragons",
   "Coldplay",
 ];
+
+const randomGenre = ["Dance", "Metal", "Party", "Rap", "Hip Hop", "Latin", "Alternative", "Indie", "Country"]
+
 const randomBookArr = [
   "Stephen King",
   "J.K. Rowling",
@@ -88,7 +91,7 @@ function App() {
           />
           <Route
             path="/playlists"
-            element={<Playlists token={accessToken} randomPerson={randomArr} />}
+            element={<Playlists token={accessToken} randomPlaylist={randomGenre} />}
           />
           <Route
             path="/podcasts"

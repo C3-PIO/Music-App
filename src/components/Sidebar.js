@@ -8,9 +8,11 @@ import { GiMusicalNotes } from "react-icons/gi";
 function Sidebar() {
   return (
     <Nav className="sidebar bg-dark">
-      <Container className="header text-nowrap fs-3 px-2 mb-3">
+      <Container className="sidebar-header text-nowrap fs-3 px-2 mb-4">
+        <Link to="https://github.com/C3-PIO/Music-App">
         <GiMusicalNotes />
         <span>Appandorify</span>
+        </Link>
       </Container>
       <Stack className="sidebar px-2 mb-0" gap={3}>
         {/* https://react-bootstrap.github.io/layout/stack/ */}

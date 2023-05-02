@@ -4,20 +4,27 @@ import { Carousel, Container } from "react-bootstrap";
 function Home() {
   return (
     <>
-      <Container className="carousel p-0">
+      <Container className="">
+        <Container className="p-3 my-3 bg-dark rounded-5">
+          <h1 className="display-5 fw-bold bg-dark rounded-5 p-5">
+            Appandorify Music
+          </h1>
+        </Container>
+      </Container>
+      <Container className="carousel p-0" data-ride="carousel">
         <Carousel fade className="mb-3">
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={require("../images/beach.jpg")}
-              alt="First slide"
+              src={require("../images/party.jpg")}
+              alt="Second slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={require("../images/woods.jpg")}
-              alt="Second slide"
+              src={require("../images/beach.jpg")}
+              alt="Fourth slide"
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -30,16 +37,11 @@ function Home() {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={require("../images/music.jpg")}
-              alt="Fourth slide"
+              src={require("../images/group.jpg")}
+              alt="First slide"
             />
           </Carousel.Item>
         </Carousel>
-      </Container>
-      <Container className="">
-        <Container className="p-3 m-0 bg-dark rounded-5">
-          <h1 className="display-5 fw-bold bg-dark rounded-5 p-5">Welcome to Music App!</h1>
-        </Container>
       </Container>
     </>
   );

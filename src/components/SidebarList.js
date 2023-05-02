@@ -1,40 +1,40 @@
-import { AiOutlineHome } from "react-icons/ai"
-import { TbMicrophone2 } from "react-icons/tb"
-import { BiAlbum, BiPodcast } from "react-icons/bi"
-import { RiPlayListLine } from "react-icons/ri"
-import { VscBook } from "react-icons/vsc"
+import { AiOutlineHome } from "react-icons/ai";
+import { TbMicrophone2 } from "react-icons/tb";
+import { BiAlbum, BiPodcast } from "react-icons/bi";
+import { RiPlayListLine } from "react-icons/ri";
+import { VscBook } from "react-icons/vsc";
 
 // Information used for the sidebar
 const SidebarList = [
   {
     name: "Home",
     path: "/",
-    icon: <AiOutlineHome />
+    icon: <AiOutlineHome />,
   },
   {
     name: "Artists",
     path: "/artists",
-    icon: <TbMicrophone2 />
+    icon: <TbMicrophone2 />,
   },
   {
     name: "Albums",
     path: "/albums",
-    icon: <BiAlbum />
+    icon: <BiAlbum />,
   },
   {
     name: "Playlists",
     path: "/playlists",
-    icon: <RiPlayListLine />
+    icon: <RiPlayListLine />,
   },
   {
     name: "Podcasts",
     path: "/podcasts",
-    icon: <BiPodcast />
+    icon: <BiPodcast />,
   },
   {
     name: "Audiobooks",
     path: "/audiobooks",
-    icon: <VscBook />
+    icon: <VscBook />,
   },
 ];
 

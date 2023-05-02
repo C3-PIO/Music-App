@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import fetchRequests from "../services/fetchRequests";
 import {
   Container,
@@ -11,11 +11,33 @@ import {
 
 // path: https://api.spotify.com/v1/playlists/{playlist_id}
 
-function Playlists({ token }) {
+function Playlists({ token, randomPerson }) {
   // Holds user input in search bar
   const [searchInput, setSearchInput] = useState("");
   // Holds playlists data
   const [playlists, setPlaylists] = useState([]);
+
+  const random = randomPerson[Math.floor(Math.random() * 20)];
+
+  useEffect(() => {
+    async function getRandom() {
+      let response = await fetch(
+        `https://api.spotify.com/v1/search?q=${random}&type=playlist&limit=50`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setPlaylists(data.playlists.items);
+    }
+    getRandom();
+  }, []);
+
   // Fetch playlists when called
   async function searchPlaylists() {
     let response = await fetch(
@@ -30,7 +52,7 @@ function Playlists({ token }) {
     );
     const data = await response.json();
     console.log(data);
-      setPlaylists(data.playlists.items);
+    setPlaylists(data.playlists.items);
   }
 
   // Render data so the results display on Playlists Page

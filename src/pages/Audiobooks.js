@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import fetchRequests from "../services/fetchRequests";
 import {
   Container,
@@ -12,12 +12,33 @@ import {
 // audiobooks path: https://api.spotify.com/v1/audiobooks
 // audiobook chapters path: https://api.spotify.com/v1/audiobooks/{id}/chapters
 
-function Audiobooks({ token }) {
+function Audiobooks({ token, books }) {
   // Holds user input in search bar
   const [searchInput, setSearchInput] = useState("");
   // Holds audiobooks data
   const [audiobooks, setAudiobooks] = useState([]);
   // Fetch audiobooks when called
+  const randomBook = books[Math.floor(Math.random() * 9)];
+
+  useEffect(() => {
+    async function getRandom() {
+      let response = await fetch(
+        `https://api.spotify.com/v1/search?q=${randomBook}&type=audiobook&market=US`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setAudiobooks(data.audiobooks.items);
+    }
+    getRandom();
+  }, []);
+
   async function searchAudiobooks() {
     let response = await fetch(
       `https://api.spotify.com/v1/search?q=${searchInput}&type=audiobook&market=US`,
@@ -33,6 +54,23 @@ function Audiobooks({ token }) {
     console.log(data);
     setAudiobooks(data.audiobooks.items);
   }
+
+  // async function getRandom() {
+  //   let response = await fetch(
+  //     `https://api.spotify.com/v1/search?q=${randomBook}&type=audiobook&market=US`,
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }
+  //   );
+  //   const data = await response.json();
+  //   console.log(data);
+  //   setAudiobooks(data.audiobooks.items);
+  // }
+  // getRandom()
 
   // Render data so the results display on Audiobooks Page
   return (

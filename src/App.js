@@ -10,9 +10,44 @@ import Home from "./pages/Home";
 import Podcasts from "./pages/Podcasts";
 import Audiobooks from "./pages/Audiobooks";
 import { Container } from "react-bootstrap";
+import SidebarList from "./components/SidebarList";
 
 const CLIENT_ID = "60c47a0b477d4b39b816055486254ba8";
-const CLIENT_SECRET = '752bc4f87bcb47849e18236ae29fcf13'
+const CLIENT_SECRET = "752bc4f87bcb47849e18236ae29fcf13";
+
+const randomArr = [
+  "Jay-Z",
+  "Taylor Swift",
+  "Ed Sheeran",
+  "Kendrick Lamar",
+  "Drake",
+  "The Weeknd",
+  "Justin Bieber",
+  "Bad Bunny",
+  "Ariana Grande",
+  "Billie Eilish",
+  "Eminem",
+  "Post Malone",
+  "Juice WRLD",
+  "Doja Cat",
+  "Rihanna",
+  "Bruno Mars",
+  "Dua Lipa",
+  "J. Cole",
+  "Imagine Dragons",
+  "Coldplay",
+];
+const randomBookArr = [
+  "Stephen King",
+  "J.K. Rowling",
+  "William Shakespeare",
+  "J.R.R. Tolkien",
+  "Dr. Seuss",
+  "George Orwell",
+  "Ernest Hemingway",
+  "R.L. Stine",
+  "Roald Dahl",
+];
 
 function App() {
   // Holds token
@@ -37,21 +72,34 @@ function App() {
     fetchData();
   }, []);
 
-  // console.log(accessToken);
-
   return (
     <div className="App bg-dark">
       <Sidebar />
       <Container className="main p-0">
-      <Routes>
-        <Route path="/" element={<Home token={accessToken}/>} />
-        <Route path="/artists" element={<Artists token={accessToken}/>} />
-        <Route path="/albums" element={<Albums token={accessToken}/>} />
-        <Route path="/playlists" element={<Playlists token={accessToken}/>} />
-        <Route path="/podcasts" element={<Podcasts token={accessToken}/>} />
-        <Route path="/audiobooks" element={<Audiobooks token={accessToken}/>} />
-      </Routes>
-    </Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/artists"
+            element={<Artists token={accessToken} randomPerson={randomArr} />}
+          />
+          <Route
+            path="/albums"
+            element={<Albums token={accessToken} randomPerson={randomArr} />}
+          />
+          <Route
+            path="/playlists"
+            element={<Playlists token={accessToken} randomPerson={randomArr} />}
+          />
+          <Route
+            path="/podcasts"
+            element={<Podcasts token={accessToken} randomPerson={randomArr} />}
+          />
+          <Route
+            path="/audiobooks"
+            element={<Audiobooks token={accessToken} books={randomBookArr} />}
+          />
+        </Routes>
+      </Container>
     </div>
   );
 }

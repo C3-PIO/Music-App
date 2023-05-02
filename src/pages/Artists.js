@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import fetchRequests from "../services/fetchRequests";
 import {
   Container,
@@ -13,16 +13,35 @@ import {
 // artists albums path: https://api.spotify.com/v1/artists/{id}/albums
 // artists top tracks path: https://api.spotify.com/v1/artists/{id}/top-tracks
 
-function Artists({ token }) {
+function Artists({ token, randomPerson }) {
   // Holds user input in search bar
   const [searchInput, setSearchInput] = useState("");
   // Holds artists data
   const [artists, setArtists] = useState([]);
+  const random = randomPerson[Math.floor(Math.random() * 20)];
+  useEffect(() => {
+    async function getRandom() {
+      let response = await fetch(
+        `https://api.spotify.com/v1/search?q=${random}&type=artist`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setArtists(data.artists.items);
+    }
+    getRandom();
+  }, []);
 
   // Fetch artists when called. Referenced https://developer.spotify.com/documentation/web-api/howtos/web-app-profile for the 2nd paramter and https://developer.spotify.com/documentation/web-api/reference/search for query
   async function searchArtists() {
     let response = await fetch(
-      `https://api.spotify.com/v1/search?q=${searchInput}&type=artist&limit=10`,
+      `https://api.spotify.com/v1/search?q=${searchInput}&type=artist&limit=50`,
       {
         method: "GET",
         headers: {
@@ -74,9 +93,7 @@ function Artists({ token }) {
                   }
                 />
                 <Card.Body className="bg-dark">
-                  <Card.Title>
-                    {artist.name}
-                  </Card.Title>
+                  <Card.Title>{artist.name}</Card.Title>
                 </Card.Body>
               </Card>
             );

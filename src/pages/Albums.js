@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import fetchRequests from "../services/fetchRequests";
 import {
   Container,
@@ -11,11 +11,31 @@ import {
 
 // path: https://api.spotify.com/v1/albums
 
-function Albums({ token }) {
+function Albums({ token, randomPerson }) {
   // Holds user input in search bar
   const [searchInput, setSearchInput] = useState("");
   // Holds albums data
   const [albums, setAlbums] = useState([]);
+  const random = randomPerson[Math.floor(Math.random() * 20)];
+  useEffect(() => {
+    async function getRandom() {
+      let response = await fetch(
+        `https://api.spotify.com/v1/search?q=${random}&type=album&limit=50`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      setAlbums(data.albums.items);
+    }
+    getRandom();
+  }, []);
+
   // Fetch albums when called
   async function searchAlbums() {
     let response = await fetch(
@@ -29,9 +49,10 @@ function Albums({ token }) {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setAlbums(data.albums.items);
   }
+  // console.log(random)
 
   // Render data so the results display on Albums Page
   return (

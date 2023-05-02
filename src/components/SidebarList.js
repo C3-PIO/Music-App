@@ -26,11 +26,11 @@ const SidebarList = [
     path: "/playlists",
     icon: <RiPlayListLine />,
   },
-  {
-    name: "Podcasts",
-    path: "/podcasts",
-    icon: <BiPodcast />,
-  },
+  // {
+  //   name: "Podcasts",
+  //   path: "/podcasts",
+  //   icon: <BiPodcast />,
+  // },
   {
     name: "Audiobooks",
     path: "/audiobooks",

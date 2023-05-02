@@ -19,7 +19,8 @@ function Podcasts({ token }) {
   // Fetch podcasts when called
   async function searchPodcasts() {
     let response = await fetch(
-      `https://api.spotify.com/v1/search?q=${searchInput}&type=show&limit=50`,
+      // `https://api.spotify.com/v1/search?q=${searchInput}&type=show&limit=50`,
+      "https://api.spotify.com/v1/shows?ids=5CfCWKI5pZ28U0uOzXkDHe%2C5as3aKmN2k11yfDDDSrvaZ",
       {
         method: "GET",
         headers: {

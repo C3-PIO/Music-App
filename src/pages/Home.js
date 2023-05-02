@@ -6,7 +6,7 @@ function Home() {
     <>
       <Container className="">
         <Container className="p-3 my-3 bg-dark rounded-5">
-          <h1 className="display-5 fw-bold bg-dark rounded-5 p-5">
+          <h1 className="display-5 m-0 fw-bold bg-dark rounded-5">
             Appandorify Music
           </h1>
         </Container>

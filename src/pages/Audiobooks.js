@@ -18,7 +18,7 @@ function Audiobooks({ token, books }) {
   // Holds audiobooks data
   const [audiobooks, setAudiobooks] = useState([]);
   // Fetch audiobooks when called
-  const randomBook = books[Math.floor(Math.random() * 9)];
+  const randomBook = books[Math.floor(Math.random() * 10)];
 
   useEffect(() => {
     async function getRandom() {

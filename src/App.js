@@ -10,10 +10,9 @@ import Home from "./pages/Home";
 import Podcasts from "./pages/Podcasts";
 import Audiobooks from "./pages/Audiobooks";
 import { Container } from "react-bootstrap";
-import SidebarList from "./components/SidebarList";
 
 const CLIENT_ID = "60c47a0b477d4b39b816055486254ba8";
-const CLIENT_SECRET = "752bc4f87bcb47849e18236ae29fcf13";
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 const randomArr = [
   "Jay-Z",
@@ -47,6 +46,7 @@ const randomBookArr = [
   "Ernest Hemingway",
   "R.L. Stine",
   "Roald Dahl",
+  "Charles Dickens"
 ];
 
 function App() {

@@ -74,6 +74,11 @@ Nav {
  font-size: 1.75vw
 }
 
+.card{
+  max-height: 215px;
+  overflow: hidden;
+}
+
 .sidebar-header svg {
   font-size: 1.5vw
 }

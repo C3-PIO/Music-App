@@ -79,6 +79,10 @@ Nav {
   overflow: hidden;
 }
 
+.card-img {
+  max-height: 243px;
+}
+
 .sidebar-header svg {
   font-size: 1.5vw
 }

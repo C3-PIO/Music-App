@@ -5,14 +5,14 @@ function Home() {
   return (
     <>
       <Container>
-        <Container className="home-header p-3">
-          <h1 className="display-5 m-0 fw-bold">
+        <Container className="home-header">
+          <h1 className="display-5 fw-bold">
             Appandorify Music
           </h1>
         </Container>
       </Container>
-      <div className="carousel p-0">
-        <Carousel fade className="m-0" interval={4500}>
+      <div className="carousel">
+        <Carousel fade interval={4500}>
           <Carousel.Item>
             <img
               className="d-block w-100"

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import fetchRequests from "../services/fetchRequests";
 import {
   Container,
   InputGroup,
@@ -8,17 +7,16 @@ import {
   Card,
   Row,
 } from "react-bootstrap";
-
-// several artists path: https://api.spotify.com/v1/artists
-// artists albums path: https://api.spotify.com/v1/artists/{id}/albums
-// artists top tracks path: https://api.spotify.com/v1/artists/{id}/top-tracks
+import { Link, Route, Routes } from "react-router-dom";
 
 function Artists({ token, randomPerson }) {
-  // Holds user input in search bar
+  
   const [searchInput, setSearchInput] = useState("");
-  // Holds artists data
+  
   const [artists, setArtists] = useState([]);
+
   const random = randomPerson[Math.floor(Math.random() * 20)];
+
   useEffect(() => {
     async function getRandom() {
       let response = await fetch(
@@ -38,7 +36,6 @@ function Artists({ token, randomPerson }) {
     getRandom();
   }, []);
 
-  // Fetch artists when called. Referenced https://developer.spotify.com/documentation/web-api/howtos/web-app-profile for the 2nd paramter and https://developer.spotify.com/documentation/web-api/reference/search for query
   async function searchArtists() {
     let response = await fetch(
       `https://api.spotify.com/v1/search?q=${searchInput}&type=artist&limit=50`,
@@ -51,13 +48,12 @@ function Artists({ token, randomPerson }) {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setArtists(data.artists.items);
   }
 
   return (
     <>
-      {/* Search component with button for user's search input  */}
       <Container className="px-4">
         <InputGroup className="my-3 size-md">
           <FormControl
@@ -79,7 +75,6 @@ function Artists({ token, randomPerson }) {
           </Button>
         </InputGroup>
       </Container>
-      {/* Render data so the results display on Artists Page. Referenced: https://react-bootstrap.netlify.app/docs/components/cards */}
       <Container className="px-2">
         <Row className="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 mx-3">
           {artists.map((artist, index) => {
@@ -93,7 +88,9 @@ function Artists({ token, randomPerson }) {
                   }
                 />
                 <Card.Body className="bg-dark">
-                  <Card.Title>{artist.name}</Card.Title>
+                  <Card.Title>
+                  <Link to="/albums">{artist.name}</Link>
+                  </Card.Title>
                 </Card.Body>
               </Card>
             );

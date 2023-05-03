@@ -10,12 +10,14 @@ import Home from "./pages/Home";
 import Podcasts from "./pages/Podcasts";
 import Audiobooks from "./pages/Audiobooks";
 import { Container } from "react-bootstrap";
+import Tracklist from "./pages/Tracklist";
+import Chapters from "./pages/Chapters";
 
 const CLIENT_ID = "60c47a0b477d4b39b816055486254ba8";
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 const randomArr = [
-  "Jay-Z",
+  "Green Day",
   "Taylor Swift",
   "Ed Sheeran",
   "Kendrick Lamar",
@@ -53,12 +55,12 @@ const randomBookArr = [
 ];
 
 function App() {
+
   // Holds token
   const [accessToken, setAccessToken] = useState("");
 
   // Fetchs token and sets it so that API requests can be made
   useEffect(() => {
-    // NEED TO ADD ERROR HANDLING?????
     async function fetchData() {
       // CREDIT: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
       // 2nd parameter is required per Spotify API
@@ -100,6 +102,14 @@ function App() {
           <Route
             path="/audiobooks"
             element={<Audiobooks token={accessToken} books={randomBookArr} />}
+          />
+          <Route
+            path="/tracklist"
+            element={<Tracklist token={accessToken}/>}
+          />
+          <Route
+            path="/chapters"
+            element={<Chapters token={accessToken}/>}
           />
         </Routes>
       </Container>

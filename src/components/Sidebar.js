@@ -4,7 +4,7 @@ import SidebarList from "./SidebarList";
 import { Nav, Stack, Container } from "react-bootstrap";
 import { GiMusicalNotes } from "react-icons/gi";
 
-// Maps through Sidebar List objects. Each list item links to the invidivual page connected to the Main component
+// Maps through Sidebar List objects. Each item links to its corresponding route in App
 function Sidebar() {
   return (
     <Nav className="sidebar bg-dark">

@@ -74,8 +74,8 @@ Nav {
  font-size: 1.75vw
 }
 
-.card{
-  max-height: 215px;
+.card {
+  max-height: 350px;
   overflow: hidden;
 }
 
@@ -110,5 +110,12 @@ Nav {
     height: 50vh;
     align-items: center;
     min-width: fit-content;
+  }
+  .card {
+    max-height: 220px;
+    overflow: hidden;
+  }
+  .card-img {
+    max-height: 150px;
   }
 }
